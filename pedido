@@ -1,0 +1,53 @@
+public class Pedido {
+    private int numero;
+    private String data;
+    private Cliente cliente;
+    private List<Produto> itens;
+    private String observacao;
+
+    public Pedido(int numero, String data, Cliente cliente) {
+        this.numero = numero;
+        this.data = data;
+        this.cliente = cliente;
+        this.itens = new ArrayList<>();
+    }
+
+    public void adicionarItem(Produto item) {
+        itens.add(item);
+    }
+
+    public void removerItem(Produto item) {
+        itens.remove(item);
+    }
+
+    public double calcularTotal() {
+        double total = 0;
+        for (Produto item : itens) {
+            total += item.getPreco();
+        }
+        return total;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public List<Produto> getItens() {
+        return itens;
+    }
+
+    public String getObservacao() {
+        return observacao;
+    }
+
+    public void setObservacao(String observacao) {
+        this.observacao = observacao;
+    }
